@@ -13,7 +13,7 @@ git clone https://github.com/hpahama/tidyvcd
 ```
 
 ## Step 3:
--Navigate to repository
+- Navigate to repository
 ```bash
 cd tidyvcd
 ```
