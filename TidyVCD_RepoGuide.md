@@ -6,15 +6,20 @@
 
 **Description**
 This function, `vcd2df`, processes a Value Change Dump (VCD) file and converts it into a structured data frame. It begins by reading the file line by line, skipping to the `$scope` section where variable definitions start. The function identifies unique variables by parsing lines containing `"var"`, storing them in a dictionary for later use. Once all variables are gathered, a preliminary data frame is constructed and initialized with placeholder values. Then, it searches for `$dumpvars`, where time-series data begins. It continues reading the file, parsing each line to extract variable values and associate them with timestamps, storing the parsed data sequentially in the data frame.
+
 As the function iterates through the VCD file, it distinguishes between bitwise and word-based variable assignments, converting numeric values from binary to integers where possible. Non-numeric entries, often encountered in initialization phases, are logged as `-1` for consistency. The data frame updates dynamically, with each column representing a new timestamp in the VCD sequence. Once all data is processed, the function renames rows according to their original variable names, removes placeholder values, and returns a well-organized data frame that reflects variable state changes over time.
 
+---
 
 ### man (vcd2df.Rd)
 
 **Description**
 This file is an Roxygen2-generated documentation file for the function vcd2df. It provides structured metadata that helps users understand how the function operates, including its purpose, usage, arguments, and return values. The vcd2df function reads a *Value Change Dump (VCD)* file and converts it into a formatted data frame, allowing users to analyze variable state changes over time. The documentation also includes example code demonstrating proper usage, ensuring users can implement the function effectively.
+
 **Usage & Maintenance**
 This file was automatically generated from comments in the source script (R/vcd2df.R). *Direct edits should not be made here*; instead, modifications should be applied within the relevant R script, and Roxygen2 should be run to regenerate an updated version. Roxygen2 streamlines the documentation process, making the function easily accessible through R’s help system (help(vcd2df)).
+
+---
 
 ### vignettes (index.qmd)
 
@@ -53,6 +58,7 @@ This .gitignore file tells Git which files to ignore so they don’t get tracked
 - **Prevents Documentation & Metadata** (`^docs$`, `^README-ES.md`, `^README-PT.md`, `^NEWS.md`)
     —avoiding redundant documentation versions.
 
+---
 
 ### F: DESCRIPTION
 
@@ -73,6 +79,7 @@ This is the **DESCRIPTION file** for the `vcd2df` R package, which converts **Va
 - **License**: GPL-3 (open-source).
 - **Documentation Tools**: Uses **Roxygen** for documentation and **Quarto** for vignettes.
 
+---
 
 ### F: Makefile
 
@@ -94,6 +101,7 @@ This is a **Makefile** that automates tasks for an R package (`vcd2df`). It defi
 
 This Makefile streamlines package development by automating the build, validation, cleanup, and version control steps.
 
+---
 
 ### F: NAMESPACE
 
@@ -103,6 +111,7 @@ This is a **roxygen2-generated directive** in an R package.
 - **roxygen2**, a package for generating documentation in R. Editing it manually could disrupt the structured documentation process.
 - **`export(vcd2df)`** – This line **makes the `vcd2df` function publicly available** when the package is loaded. It ensures users can call `vcd2df()` without needing to specifically import it.
 
+---
 
 ### F: vcd2df_1.0.1.tar.gz
 
