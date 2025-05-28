@@ -3,20 +3,22 @@
 ## Folders:
 
 ### R (vcd2df.R)
-```markdown
+
+**Description**
 This function, `vcd2df`, processes a Value Change Dump (VCD) file and converts it into a structured data frame. It begins by reading the file line by line, skipping to the `$scope` section where variable definitions start. The function identifies unique variables by parsing lines containing `"var"`, storing them in a dictionary for later use. Once all variables are gathered, a preliminary data frame is constructed and initialized with placeholder values. Then, it searches for `$dumpvars`, where time-series data begins. It continues reading the file, parsing each line to extract variable values and associate them with timestamps, storing the parsed data sequentially in the data frame.
 As the function iterates through the VCD file, it distinguishes between bitwise and word-based variable assignments, converting numeric values from binary to integers where possible. Non-numeric entries, often encountered in initialization phases, are logged as `-1` for consistency. The data frame updates dynamically, with each column representing a new timestamp in the VCD sequence. Once all data is processed, the function renames rows according to their original variable names, removes placeholder values, and returns a well-organized data frame that reflects variable state changes over time.
-```
+
 
 ### man (vcd2df.Rd)
-```markdown
+
 **Description**
 This file is an Roxygen2-generated documentation file for the function vcd2df. It provides structured metadata that helps users understand how the function operates, including its purpose, usage, arguments, and return values. The vcd2df function reads a *Value Change Dump (VCD)* file and converts it into a formatted data frame, allowing users to analyze variable state changes over time. The documentation also includes example code demonstrating proper usage, ensuring users can implement the function effectively.
 **Usage & Maintenance**
 This file was automatically generated from comments in the source script (R/vcd2df.R). *Direct edits should not be made here*; instead, modifications should be applied within the relevant R script, and Roxygen2 should be run to regenerate an updated version. Roxygen2 streamlines the documentation process, making the function easily accessible through R’s help system (help(vcd2df)).
-```
 
 ### vignettes (index.qmd)
+
+**Definition**
 Verilog Hardware Description Language (HDL)
 - Used to design, model, and simulate digital circuits and systems-like microprocessors, memory chips, and complex electronic components.
 - What it does:
@@ -26,15 +28,15 @@ Verilog Hardware Description Language (HDL)
 
 Octothorpe (#)
 
-```markdown
+**Description**
 This document is a vignette for the `vcd2df` function, which converts *Value Change Dump (VCD) files*—used in digital circuit simulation—into an *R data frame* for analysis. It explains how VCD files, based on the **IEEE 1364-1995/2001** standard, store register values at discrete time points during a Verilog/VHDL simulation and how `vcd2df` processes these files into a structured format, where rows represent registers and columns represent time points (formatted as octothorpe-prefixed multiples of the timescale). Key implementation details include encoding non-numerical values (`x`, `z`) as negative numbers and ignoring registers with duplicate names across modules. The workflow covers *loading the library*, *downloading a sample VCD file*, *converting it to a data frame*, *inspecting register names and timestamps*, and *cleaning up temporary files*, using a practical example from the **Naive Educational RISC-V Processor (NERV)** testbench.
-```
 
 ----
 ## Files:
 
 ### .Rbuildignore
-```markdown
+
+**Description**
 This .gitignore file tells Git which files to ignore so they don’t get tracked in version control. It helps keep a project clean by skipping unnecessary, temporary, or auto-generated files.
 
 ### **What `.gitignore` Does**
@@ -50,10 +52,11 @@ This .gitignore file tells Git which files to ignore so they don’t get tracked
     —used for automation but not needed in version control.
 - **Prevents Documentation & Metadata** (`^docs$`, `^README-ES.md`, `^README-PT.md`, `^NEWS.md`)
     —avoiding redundant documentation versions.
-```
+
 
 ### F: DESCRIPTION
-```markdown
+
+**Description**
 This is the **DESCRIPTION file** for the `vcd2df` R package, which converts **Value Change Dump (VCD) files** from hardware simulations into **R data frames** for analysis. 
 
 ### **Key Details**
@@ -69,10 +72,11 @@ This is the **DESCRIPTION file** for the `vcd2df` R package, which converts **Va
 - **Repository & Issue Tracking**: Hosted on [GitHub](https://github.com/vcd2df/r).
 - **License**: GPL-3 (open-source).
 - **Documentation Tools**: Uses **Roxygen** for documentation and **Quarto** for vignettes.
-```
+
 
 ### F: Makefile
-```markdown
+
+**Description**
 This is a **Makefile** that automates tasks for an R package (`vcd2df`). It defines a rule (`all:`) that runs several commands in sequence:
 
 1. **`R CMD build .`** – Builds the R package from the current directory.
@@ -89,20 +93,21 @@ This is a **Makefile** that automates tasks for an R package (`vcd2df`). It defi
 5. **`git push`** – Pushes the committed changes to the remote repository.
 
 This Makefile streamlines package development by automating the build, validation, cleanup, and version control steps.
-```
+
 
 ### F: NAMESPACE
-```markdown
+
+**Description**
 This is a **roxygen2-generated directive** in an R package. 
 
 - **roxygen2**, a package for generating documentation in R. Editing it manually could disrupt the structured documentation process.
 - **`export(vcd2df)`** – This line **makes the `vcd2df` function publicly available** when the package is loaded. It ensures users can call `vcd2df()` without needing to specifically import it.
-```
+
 
 ### F: vcd2df_1.0.1.tar.gz
-```markdown
+
+**Description**
 This is a zip file
-```
 
 -----
 ### **TL;DR – TidyVCD Repository Overview**
